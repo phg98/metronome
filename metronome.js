@@ -12,12 +12,12 @@ function beep(frequency) {
     
     if (beatCount % 4 == 0) {
         beatCount = 0;
-        console.log(beatCount / 4);
+        // console.log(beatCount / 4);
         frequency += 100;
     }
     osc.frequency.value = frequency;
     osc.start(0);
-    osc.stop(0.1);
+    osc.stop(0.05);
     beatCount++;
 }
 
