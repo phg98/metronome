@@ -16,7 +16,9 @@
         crossorigin="anonymous"></script>
     <!-- add display to show the current tempo -->
     <div style="display: flex;    align-items: center;">
-        Speed :   <span><h2 id="tempoDisplay">175</h2></span>   bpm
+        Speed : <span>
+            <h2 id="tempoDisplay">175</h2>
+        </span> bpm
     </div>
     <div>
         <!-- // add - button to decrease the tempo -->
@@ -27,15 +29,15 @@
         <button onclick="increaseTempo()">+</button>
     </div>
 
-    <!-- // add display to show the current beat -->
-    Beat : <div id="beatDisplay">1</div>
-
-
     <!-- // add a button to start the metronome -->
     <button onclick="startMetronome()">Start</button>
     <!-- // add a button to stop the metronome -->
     <button onclick="stopMetronome()">Stop</button>
 
+    <!-- // add display to show the current beat -->
+    <div style="display: flex;    align-items: center;">
+        Beat : <div id="beatCount">1</div>
+    </div>
 
 </body>
 

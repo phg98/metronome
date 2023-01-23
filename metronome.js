@@ -19,6 +19,7 @@ function beep(frequency) {
     osc.start(0);
     osc.stop(0.05);
     beatCount++;
+    updateBeatCount();
 }
 
 // metronome : beep every 1 second
@@ -72,7 +73,9 @@ function increaseTempo() {
     changeTempo();
 }
 
-
+function updateBeatCount() {
+    document.getElementById("beatCount").innerHTML = beatCount;
+}
 
 // set the tempo value when the page is loaded
 window.onload = function() {    
