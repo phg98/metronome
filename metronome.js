@@ -1,6 +1,6 @@
 
 let beatCount = 0
-let tempo_bpm
+let tempo_bpm = 120
 let timer
 let isStarted = false
 
@@ -56,6 +56,7 @@ function stopMetronome() {
 // change the tempo using slider
 function changeTempo() {
     tempo_bpm = document.getElementById("tempoSlider").value;
+    tempo_bpm = parseInt(tempo_bpm);
     // restart the metronome if it is running
     if (isStarted) {
         stopMetronome();
@@ -65,11 +66,26 @@ function changeTempo() {
     // bind the tempo value to the slider
 
     document.getElementById("tempoDisplay").innerHTML = tempo_bpm;
-    console.log(tempo_bpm, document.getElementById("tempoDisplay").value);
+    console.log(tempo_bpm, document.getElementById("tempoDisplay").innerHTML);
 }
+
+function decreaseTempo() {
+    tempo_bpm -= 1;
+    document.getElementById("tempoSlider").value = tempo_bpm;
+    changeTempo();
+}
+
+function increaseTempo() {
+    tempo_bpm += 1;
+    document.getElementById("tempoSlider").value = tempo_bpm;
+    changeTempo();
+}
+
+
 
 // set the tempo value when the page is loaded
 window.onload = function() {    
     tempo_bpm = document.getElementById("tempoSlider").value;
+    tempo_bpm = parseInt(tempo_bpm);
     document.getElementById("tempoDisplay").innerHTML = tempo_bpm;
 }
