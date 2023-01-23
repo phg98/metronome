@@ -1,31 +1,42 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="metronome.js"></script>
-    <title>Wetronome</title>            
+    <title>Wetronome</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3887788932946582"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
-    Wetronome is a simple metronome application        
+    <h1>Online-Metronome Plus is a metronome application for practicing drums</h1>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3887788932946582"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <!-- add display to show the current tempo -->
-    <div id="tempoDisplay">100</div>
-    // add display to show the current beat
-    <div id="beatDisplay">1</div>
+    <div style="display: flex;    align-items: center;">
+        Speed :   <span><h2 id="tempoDisplay">175</h2></span>   bpm
+    </div>
+    <div>
+        <!-- // add - button to decrease the tempo -->
+        <button onclick="decreaseTempo()">-</button>
+        <!-- // add a slider to change the tempo -->
+        <input type="range" min="40" max="200" value="175" class="slider" id="tempoSlider" oninput="changeTempo()">
+        <!-- // add + button to increase the tempo -->
+        <button onclick="increaseTempo()">+</button>
+    </div>
+
+    <!-- // add display to show the current beat -->
+    Beat : <div id="beatDisplay">1</div>
 
 
     <!-- // add a button to start the metronome -->
     <button onclick="startMetronome()">Start</button>
     <!-- // add a button to stop the metronome -->
     <button onclick="stopMetronome()">Stop</button>
-    <!-- // add a slider to change the tempo -->
-    <input type="range" min="40" max="200" value="100" class="slider" id="tempoSlider" oninput="changeTempo()">
-    // add a slider to change the tempo, with a display
 
 
 </body>
+
 </html>

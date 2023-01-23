@@ -1,7 +1,8 @@
 
 let beatCount = 0
-let tempo_bpm = 120
+let tempo_bpm
 let timer
+let isStarted = false
 
 // beep sound
 function beep(frequency) {
@@ -41,18 +42,34 @@ function metronome2(tempo_bpm) {
 // start the metronome
 function startMetronome() {
     metronome(tempo_bpm);
+    isStarted = true;
+    console.log("start")
 }
 
 // stop the metronome
 function stopMetronome() {
     clearInterval(timer);
+    isStarted = false
+    console.log("stop")
 }
 
 // change the tempo using slider
 function changeTempo() {
     tempo_bpm = document.getElementById("tempoSlider").value;
-    stopMetronome();
-    startMetronome();
+    // restart the metronome if it is running
+    if (isStarted) {
+        stopMetronome();
+        startMetronome();
+    }
     // set the tempo value in the text box
-    document.getElementById("tempoDisplay").value = tempo_bpm;
+    // bind the tempo value to the slider
+
+    document.getElementById("tempoDisplay").innerHTML = tempo_bpm;
+    console.log(tempo_bpm, document.getElementById("tempoDisplay").value);
+}
+
+// set the tempo value when the page is loaded
+window.onload = function() {    
+    tempo_bpm = document.getElementById("tempoSlider").value;
+    document.getElementById("tempoDisplay").innerHTML = tempo_bpm;
 }
