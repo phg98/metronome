@@ -5,44 +5,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="metronome.js"></script>
-    <title>Wetronome</title>
+    <title>Online Metronome</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3887788932946582"
         crossorigin="anonymous"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 
 <body>
-    <h1>Online-Metronome Plus is a metronome application for practicing drums</h1>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3887788932946582"
-        crossorigin="anonymous"></script>
-    <!-- add display to show the current tempo -->
-    <div style="display: flex;    align-items: center;">
-        Speed : <span>
-            <h2 id="tempoDisplay">175</h2>
-        </span> bpm
-    </div>
     <div>
-        <!-- // add - button to decrease the tempo -->
-        <button onclick="decreaseTempo()">-</button>
-        <!-- // add a slider to change the tempo -->
-        <input type="range" min="40" max="300" value="175" class="slider" id="tempoSlider" oninput="changeTempo()">
-        <!-- // add + button to increase the tempo -->
-        <button onclick="increaseTempo()">+</button>
+
+        <h1 class="center">Online-Metronome Plus is a metronome application for practicing drums</h1>
+        <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3887788932946582"
+            crossorigin="anonymous"></script>
+        <!-- add display to show the current tempo -->
+        <div class="center">
+            <div class="center" style="display: flex; justify-content: center;   align-items: center;">
+                Speed : <span>
+                    <h2 id="tempoDisplay">175</h2>
+                </span> bpm
+            </div>
+        </div>
+        <div class="center">
+            <div>
+                <!-- // add - button to decrease the tempo -->
+                <button type="button" class="btn btn-outline-secondary rounded-circle"
+                    onclick="decreaseTempo()">-</button>
+                <!-- // add a slider to change the tempo -->
+                <input type="range" min="40" max="300" value="175" class="slider" id="tempoSlider"
+                    oninput="changeTempo()">
+                <!-- // add + button to increase the tempo -->
+                <button type="button" class="btn btn-outline-secondary rounded-circle"
+                    onclick="increaseTempo()">+</button>
+            </div>
+        </div>
+
+
+        <div class="center">
+            <!-- // add a button to start the metronome -->
+            <button type="button" class="btn btn-primary" onclick="startMetronome()">Start</button>
+            <!-- // add a button to stop the metronome -->
+            <button type="button" class="btn btn-primary" onclick="stopMetronome()">Stop</button>
+        </div>
+
+
+        <div class="center">
+            <!-- // add display to show the current beat -->
+            <div class="center" style="display: flex; justify-content: center;   align-items: center;">
+                Beat : <div id="beatCount">1</div>
+            </div>
+        </div>
     </div>
-
-    <!-- // add a button to start the metronome -->
-    <button onclick="startMetronome()">Start</button>
-    <!-- // add a button to stop the metronome -->
-    <button onclick="stopMetronome()">Stop</button>
-
-    <!-- // add display to show the current beat -->
-    <div style="display: flex;    align-items: center;">
-        Beat : <div id="beatCount">1</div>
-    </div>
-
 </body>
 
 </html>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f5f5f5;
+    }
+
+    .center {
+        margin: auto;
+        width: 50%;
+        text-align: center;
+        padding: 10px;
+    }
+</style>
