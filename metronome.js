@@ -33,6 +33,9 @@ function metronome(bpm) {
 
 // start the metronome
 function startMetronome() {
+    if (isStarted) {
+        return;
+    }
     metronome(tempo_bpm);
     isStarted = true;
     console.log("start")
@@ -40,8 +43,13 @@ function startMetronome() {
 
 // stop the metronome
 function stopMetronome() {
+    if (!isStarted) {
+        return;
+    }
     clearInterval(timer);
     isStarted = false
+    beatCount = 0;
+    updateBeatCount();
     console.log("stop")
 }
 
@@ -74,7 +82,7 @@ function increaseTempo() {
 }
 
 function updateBeatCount() {
-    document.getElementById("beatCount").innerHTML = beatCount;
+    document.getElementById("beatCount").innerHTML = Math.max(1, beatCount);
 }
 
 // set the tempo value when the page is loaded
