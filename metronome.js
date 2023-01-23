@@ -30,15 +30,6 @@ function metronome(bpm) {
 
 }
 
-// beep high pitch every 4th beat
-function metronome2(tempo_bpm) {
-    var interval = 60 / tempo_bpm;
-    var timer = setInterval(function() {
-        beep(440);
-    }, interval * 1000);
-
-}
-
 // start the metronome
 function startMetronome() {
     metronome(tempo_bpm);
